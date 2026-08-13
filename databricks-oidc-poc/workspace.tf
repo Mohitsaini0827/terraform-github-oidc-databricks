@@ -1,9 +1,9 @@
 resource "databricks_group" "workspace_group_1" {
-  display_name = "dbx-test-2"
+  display_name = "dbx-test-1"
 }
 
 resource "databricks_user" "workspace_user_1" {
-  user_name = "dbxuser1@whoaks.ml"
+  user_name = "workspace_user_1@whoaks.ml"
 }
 
 resource "databricks_cluster" "dabx_cluster" {

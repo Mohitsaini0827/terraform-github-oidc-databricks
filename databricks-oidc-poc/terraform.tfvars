@@ -20,7 +20,7 @@ user_name   = "mohit@whoaks.ml"
 
 # ─── Databricks Cluster Settings ───────────────────────────────────────────
 cluster_name            = "dabx-cluster-tf"
-spark_version           = "11.3.x-scala2.12"
-node_type_id            = "Standard_D4ps_v6"
+spark_version           = "17.3.x-scala2.12"
+node_type_id            = "Standard_D4ds_v5"
 num_workers             = 1
 autotermination_minutes = 10

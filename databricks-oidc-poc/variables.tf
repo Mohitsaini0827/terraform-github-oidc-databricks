@@ -93,7 +93,7 @@ variable "cluster_name" {
 variable "spark_version" {
   description = "Databricks Runtime version for the cluster."
   type        = string
-  default     = "11.3.x-scala2.12"
+  default     = "17.3.x-scala2.12"
 }
 
 variable "node_type_id" {

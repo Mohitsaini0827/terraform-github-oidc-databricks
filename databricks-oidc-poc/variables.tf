@@ -30,8 +30,8 @@ variable "databricks_client_id" {
   type        = string
 
   validation {
-    condition     = can(regex("^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", var.azure_client_id))
-    error_message = "The Azure client ID must be a valid UUID."
+    condition     = can(regex("^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", var.databricks_client_id))
+    error_message = "The Databricks client ID must be a valid UUID."
   }
 }
 

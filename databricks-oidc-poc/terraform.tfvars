@@ -10,9 +10,9 @@ databricks_account_id = "a66e1cfe-3e1f-40c8-b497-0b10a76e1644"
 
 # ─── Azure Service Principal (sp-databricks-terraform-wif) ──────────────────
 azure_subscription_id = "4c26ab7c-9d5b-4350-bb19-372a55ecf3bf"
-azure_client_id       = "6428111d-9dd9-4909-b52c-b555eccd2cc4"
+# databricks_client_id       = "6428111d-9dd9-4909-b52c-b555eccd2cc4"
 azure_tenant_id       = "d18895cc-999c-43f0-acda-6b008393110a"
-azure_client_secret   = "dose363378d35bec8dda33e5aa5ab4923abe" 
+# databricks_client_secret   = "dose363378d35bec8dda33e5aa5ab4923abe" 
 
 # ─── Databricks Resources to Read ───────────────────────────────────────────
 group_names = ["admins"]

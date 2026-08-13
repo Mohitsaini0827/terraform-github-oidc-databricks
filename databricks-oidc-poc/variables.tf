@@ -59,7 +59,7 @@ variable "databricks_client_secret" {
   description = "Client secret for the Azure Service Principal (if not using MSI)."
   type        = string
   sensitive   = true
-  # default     = "dose38f0e738ccb22ba9935cbdfe847a615d"
+  default     = "dose38f0e738ccb22ba9935cbdfe847a615d"
 }
 # ─── Databricks Resources to Read ───────────────────────────────────────────
 

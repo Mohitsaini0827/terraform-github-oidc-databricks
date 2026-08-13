@@ -1,0 +1,42 @@
+name: Infrastructure
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "databricks-oidc-poc/**"
+  workflow_dispatch:
+
+# Required to get the ID Token used for OIDC federation with Databricks
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    name: deploy to dev
+    runs-on: ubuntu-latest
+    env:
+      DATABRICKS_AUTH_TYPE: github-oidc
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v4
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: ./databricks-oidc-poc
+
+      - name: Terraform Plan
+        run: |
+          terraform plan -out=tfplan \
+            -var 'github_token=${{ secrets.DATABRICKS_GH_TOKEN }}'
+        working-directory: ./databricks-oidc-poc
+
+      - name: Terraform Apply
+        run: terraform apply tfplan
+        working-directory: ./databricks-oidc-poc

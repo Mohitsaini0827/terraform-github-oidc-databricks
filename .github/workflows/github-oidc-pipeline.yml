@@ -33,8 +33,9 @@ jobs:
 
       - name: Terraform Plan
         run: |
-          terraform plan -out=tfplan \
-            -var 'github_token=${{ secrets.DATABRICKS_GH_TOKEN }}'
+          terraform plan -out=tfplan -var 'databricks_client_id=${{
+          secrets.DATABRICKS_CLIENT_ID }}' -var 'databricks_client_secret=${{
+          secrets.DATABRICKS_CLIENT_SECRET }}'
         working-directory: ./databricks-oidc-poc
 
       - name: Terraform Apply

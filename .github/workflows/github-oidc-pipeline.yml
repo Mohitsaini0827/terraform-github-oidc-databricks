@@ -17,7 +17,7 @@ jobs:
     name: deploy to dev
     runs-on: ubuntu-latest
     env:
-      # DATABRICKS_AUTH_TYPE: github-oidc
+      DATABRICKS_AUTH_TYPE: github-oidc
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
       DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
     steps:
@@ -34,8 +34,7 @@ jobs:
       - name: Terraform Plan
         run: |
           terraform plan -out=tfplan -var 'databricks_client_id=${{
-          secrets.DATABRICKS_CLIENT_ID }}' -var 'databricks_client_secret=${{
-          secrets.DATABRICKS_CLIENT_SECRET }}'
+          secrets.DATABRICKS_CLIENT_ID }}'
         working-directory: ./databricks-oidc-poc
 
       - name: Terraform Apply
